@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="polinema.mi.auth">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Auth">
+
+        <meta-data
+            android:name=
+                "com.google.firebase.messaging.default_notification_icon"
+            android:resource="@android:drawable/ic_dialog_email" />
+        <meta-data
+            android:name=
+                "com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/black"/>
+        <meta-data
+            android:name=
+                "com.google.firebase.messaging.default_notification_channel_id"
+            android:value="auth"/>
+        <service android:name=".AuthFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".DisplayDataActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
